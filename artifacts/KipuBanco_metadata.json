@@ -1,0 +1,392 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_limiteBanco",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_limiteRetiroPorTransaccion",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "DepositoVacio",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "montoDeposito",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "espacioDisponible",
+						"type": "uint256"
+					}
+				],
+				"name": "ExcedeLimiteBanco",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "montoSolicitado",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limiteMaximo",
+						"type": "uint256"
+					}
+				],
+				"name": "ExcedeLimiteRetiro",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "RetiroVacio",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "montoSolicitado",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "saldoDisponible",
+						"type": "uint256"
+					}
+				],
+				"name": "SaldoInsuficiente",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "usuario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cantidad",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nuevoSaldoUsuario",
+						"type": "uint256"
+					}
+				],
+				"name": "DepositoExitoso",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "usuario",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "cantidad",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "nuevoSaldoUsuario",
+						"type": "uint256"
+					}
+				],
+				"name": "RetiroExitoso",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "bovedaPersonal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "consultarEstadisticasBanco",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "totalFondos",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "capacidadRestante",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalOperaciones",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "consultarLimites",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "limiteGlobal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limiteRetiroIndividual",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "consultarMiSaldo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "usuario",
+						"type": "address"
+					}
+				],
+				"name": "consultarSaldoUsuario",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "depositar",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "limiteBanco",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "limiteRetiroPorTransaccion",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numeroDepositos",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "numeroRetiros",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "cantidadRetiro",
+						"type": "uint256"
+					}
+				],
+				"name": "retirar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalDepositado",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"bovedaPersonal(address)": {
+					"notice": "Bóveda personal de cada usuario ETH"
+				},
+				"consultarEstadisticasBanco()": {
+					"notice": "Consulta las estadísticas generales del banco"
+				},
+				"consultarLimites()": {
+					"notice": "Consulta los límites de seguridad del contrato"
+				},
+				"consultarMiSaldo()": {
+					"notice": "Consulta el saldo de ETH en la bóveda del usuario que llama la función"
+				},
+				"consultarSaldoUsuario(address)": {
+					"notice": "Consulta el saldo de ETH en la bóveda de un usuario específico"
+				},
+				"depositar()": {
+					"notice": "Permite a los usuarios depositar ETH en su bóveda personal"
+				},
+				"limiteBanco()": {
+					"notice": "Límite máximo"
+				},
+				"limiteRetiroPorTransaccion()": {
+					"notice": "Límite máximo por transacción"
+				},
+				"numeroDepositos()": {
+					"notice": "Contador de  depósitos realizados"
+				},
+				"numeroRetiros()": {
+					"notice": "Contador de retiros realizados"
+				},
+				"retirar(uint256)": {
+					"notice": "Permite a los usuarios retirar ETH de su bóveda personal"
+				},
+				"totalDepositado()": {
+					"notice": "Total de ETH depositado"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/KipuBank.sol": "KipuBanco"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0xa535a5df777d44e945dd24aa43a11e44b024140fc340ad0dfe42acf4002aade1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://41319e7f621f2dc3733511332c4fd032f8e32ad2aa7fd6f665c19741d9941a34",
+				"dweb:/ipfs/QmcYR3bd862GD1Bc7jwrU9bGxrhUu5na1oP964bDCu2id1"
+			]
+		},
+		"contracts/KipuBank.sol": {
+			"keccak256": "0x436a4f4acbaeea68e3542d16810c9c49f2309901a2abbeae57196bc8bbc97f2a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2b25dfb6085989342b20779aa9553ed89f49cee3967add19f8693feed778e323",
+				"dweb:/ipfs/QmUC4ZQMpZZGAY4ipm4fqMSWuCu6ksyKncRebGCVA63k5g"
+			]
+		}
+	},
+	"version": 1
+}
